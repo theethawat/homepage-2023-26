@@ -13,10 +13,9 @@ title: My Rad Blog
     <meta property="og:title" content="{{ title }}"/>
     <meta property="og:type" content="text/html"/>
     <meta property="og:description" content="{{ subtitle | safe }}"/>
-    <meta property="og:image" content="https://www.theduckcreator.in.th/assets/Logo2021/Banner2021.png"/>
     <link href="https://fonts.googleapis.com/css?family=Kanit:300,400&display=swap" rel="stylesheet"/>
     <link rel="icon" href="/img/ThSFavicon.png"/>
-    <link rel="stylesheet" href="{{ '/index.css' | url }}">
+    <link rel="stylesheet" href="/index.css">
     <link rel="alternate" hreflang="{{ lang }}" href="{{ page.url }}">
     {% for link in page.url | locale_links %}
       <link rel="alternate" hreflang="{{ link.lang }}" href="{{ link.url }}">

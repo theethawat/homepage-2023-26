@@ -5,7 +5,10 @@ const sharp = require("sharp");
 const Image = require("@11ty/eleventy-img");
 const dayjs = require("dayjs");
 const _ = require("lodash");
-const { EleventyI18nPlugin } = require("@11ty/eleventy");
+const {
+  EleventyI18nPlugin,
+  EleventyHtmlBasePlugin,
+} = require("@11ty/eleventy");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 
@@ -72,6 +75,7 @@ module.exports = (eleventyConfig) => {
     // when to build image
     // errorMode: "never", //"never", // // Opting out of "strict"
   });
+  eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
   eleventyConfig.addNunjucksAsyncFilter("postcss", (cssCode, done) => {
     postcss([tailwindcss(require("./tailwind.config.js")), autoprefixer()])
       .process(cssCode)
@@ -121,6 +125,7 @@ module.exports = (eleventyConfig) => {
     return "";
   });
   return {
+    pathPrefix: "/homepage-2023-26/",
     dir: {
       input: "src",
       output: "_site",
